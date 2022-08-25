@@ -10,6 +10,10 @@ const Joke = () => {
   const joke = useSelector((state) => state.joke);
   const dispatch = useDispatch();
 
+  const onGetAnotherJoke = () => {
+    dispatch({ type: Action.FETCH_REQUEST });
+  };
+  
   useEffect(() => {
     dispatch({ type: Action.FETCH_REQUEST });
   }, []);
@@ -17,7 +21,9 @@ const Joke = () => {
     <div className="container">
       <h3>Don't Laugh Challenge</h3>
       <div className="joke">{joke}</div>
-      <button className="btn">Get Another Fact</button>
+      <button className="btn" onClick={onGetAnotherJoke}>
+        Get Another Fact
+      </button>
     </div>
   );
 };
